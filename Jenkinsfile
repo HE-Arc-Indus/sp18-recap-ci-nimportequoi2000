@@ -27,10 +27,6 @@ pipeline {
             always {
                 junit '**/target/*.xml'
             }
-            failure {[$class: 'Mailer',
-            recipients: "ulysse.rosselet@he-arc.ch",
-            sendToIndividuals: true]
-            }
         }
     }
 }
