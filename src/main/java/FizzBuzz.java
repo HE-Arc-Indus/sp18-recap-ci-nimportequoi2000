@@ -21,6 +21,7 @@
  *  </pre>
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,26 +29,26 @@ import java.util.stream.Collectors;
 public class FizzBuzz {
 
     public List<String> generateList(int length) {
-        String[] myArray = new String[length];
-        for(int i = 0; i<length; i++){
-            myArray[i] = String.valueOf(i+1);
+        List<String> fbList = new ArrayList<>();
+        for (int n = 1; n < length + 1; n++) {
+            fbList.add(transformSingleNumber(n));
         }
-        List<String> fbList = Arrays.asList(myArray).stream().map((String s) -> {
-            int n = Integer.parseInt(s);
-            if(n % 3 == 0 && n % 5 == 0){
-                return "FizzBuzz";
-            }
-            if(n % 3 == 0){
-                return "Fizz";
-            }
-            if(n % 5 == 0){
-                return "Buzz";
-            }
-            else {
-                return s;
-            }
-        }).collect(Collectors.toList());
         return fbList;
+    }
+
+    private String transformSingleNumber(int n) {
+        String s = String.valueOf(n);
+        if (n % 3 == 0 && n % 5 == 0) {
+            return "FizzBuzz";
+        }
+        if (n % 3 == 0) {
+            return "Fizz";
+        }
+        if (n % 5 == 0) {
+            return "Buzz";
+        } else {
+            return s;
+        }
     }
 
 
