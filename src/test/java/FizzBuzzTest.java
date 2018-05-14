@@ -1,6 +1,8 @@
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
@@ -102,6 +104,29 @@ public class FizzBuzzTest {
         // Act
         List<String> actual = fb.generateList(expected.size());
         // Assert
+        assertThat(actual, is(expected));
+    }
+    /**
+     * Exemple d'utilisation de la réflexion pour tester la méthode privée
+     * @throws NoSuchMethodException
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
+    @Test
+    public void testSingleNumberPrivateMethod()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        // Arrange
+        FizzBuzz fb = new FizzBuzz();
+        String expected = "FizzBuzz";
+        int testValue  = 15;
+        // int parameter
+        Class[] argClasses = new Class<?>[1];
+        argClasses[0] = int.class;
+        Method m = null;
+        m = fb.getClass().getDeclaredMethod("transformSingleNumber", argClasses);
+        m.setAccessible(true);
+        // Act
+        String actual = (String) m.invoke(fb, testValue);
         assertThat(actual, is(expected));
     }
 
