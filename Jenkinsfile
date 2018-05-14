@@ -23,6 +23,14 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        post {
+            always {
+                junit '**/target/*.xml'
+            }
+            failure {
+                mail to: ulysse.rosselet@he-arc.ch, subject: 'The Nimporte Nawak's Pipeline failed :('
+            }
+        }
     }
 }
 
