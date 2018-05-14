@@ -29,7 +29,7 @@ pipeline {
             junit 'target/surefire-reports/*.xml'
         }
 		failure {
-            mail to: ulysse.rosselet@he-arc.ch, subject: 'The Nimporte Nawak's Pipeline failed :('
+            mail to: ulysse.rosselet@he-arc.ch, subject: 'The Nimporte Nawaks Pipeline failed :('
         }
     }
 }
