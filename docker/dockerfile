@@ -1,0 +1,12 @@
+#Dans la vm BGGDocker --> /docker/jenkins2/
+FROM jenkins/jenkins
+
+# if we want to install via apt
+USER root
+RUN apt-get update && apt-get upgrade -y && install maven -y
+
+# drop back to the regular jenkins user - good practice
+USER jenkins
+
+# docker build -t jenkiki2 .
+# pour lancer le container docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkiki2
