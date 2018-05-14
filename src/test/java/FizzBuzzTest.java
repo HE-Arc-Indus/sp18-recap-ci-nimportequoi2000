@@ -40,5 +40,20 @@ public class FizzBuzzTest {
         assertThat(actual, is(expected));
     }
 
+    /**
+     * The list is a sequence of list of the given length
+     */
+    @Test
+    public void testFirstTwoIntegers(){
+        // Arrange
+        FizzBuzz fb = new FizzBuzz();
+        List<String> expected = Arrays.asList("1","2");
+        // Act
+        List<String> actual = fb.generateList(2);
+        // Assert
+        assertThat(actual, is(expected));
+    }
+
+
 
 }

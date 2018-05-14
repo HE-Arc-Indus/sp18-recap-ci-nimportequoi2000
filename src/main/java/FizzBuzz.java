@@ -28,6 +28,9 @@ public class FizzBuzz {
 
     public List<String> generateList(int length) {
         String[] myArray = new String[length];
+        for(int i = 0; i<length; i++){
+            myArray[i] = String.valueOf(i+1);
+        }
         return Arrays.asList(myArray);
     }
 
