@@ -27,8 +27,9 @@ pipeline {
             always {
                 junit '**/target/*.xml'
             }
-            failure {
-                mail to: ulysse.rosselet@he-arc.ch, subject: 'The Nimporte Nawak's Pipeline failed :('
+            failure {[$class: 'Mailer',
+            recipients: "ulysse.rosselet@he-arc.ch",
+            sendToIndividuals: true]
             }
         }
     }
