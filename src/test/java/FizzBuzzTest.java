@@ -37,7 +37,7 @@ public class FizzBuzzTest {
         // Act
         List<String> actual = fb.generateList(3);
         // Assert
-        assertThat(actual, is(expected));
+        assertThat(actual.size(), is(expected.size()));
     }
 
     /**
