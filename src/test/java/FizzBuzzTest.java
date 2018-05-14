@@ -54,6 +54,18 @@ public class FizzBuzzTest {
         assertThat(actual, is(expected));
     }
 
-
+    /**
+     * Replaces 3 by Fizz
+     */
+    @Test
+    public void replace3ByFizz(){
+        // Arrange
+        FizzBuzz fb = new FizzBuzz();
+        List<String> expected = Arrays.asList("1","2","Fizz");
+        // Act
+        List<String> actual = fb.generateList(expected.size());
+        // Assert
+        assertThat(actual, is(expected));
+    }
 
 }

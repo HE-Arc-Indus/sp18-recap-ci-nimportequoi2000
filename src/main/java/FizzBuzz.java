@@ -23,6 +23,7 @@
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FizzBuzz {
 
@@ -31,7 +32,16 @@ public class FizzBuzz {
         for(int i = 0; i<length; i++){
             myArray[i] = String.valueOf(i+1);
         }
-        return Arrays.asList(myArray);
+        List<String> fbList = Arrays.asList(myArray).stream().map((String s) -> {
+            int n = Integer.parseInt(s);
+            if(n % 3 == 0){
+                return "Fizz";
+            }
+            else {
+                return s;
+            }
+        }).collect(Collectors.toList());
+        return fbList;
     }
 
 
