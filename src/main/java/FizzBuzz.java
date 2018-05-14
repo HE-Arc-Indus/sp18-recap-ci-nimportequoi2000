@@ -34,6 +34,9 @@ public class FizzBuzz {
         }
         List<String> fbList = Arrays.asList(myArray).stream().map((String s) -> {
             int n = Integer.parseInt(s);
+            if(n % 3 == 0 && n % 5 == 0){
+                return "FizzBuzz";
+            }
             if(n % 3 == 0){
                 return "Fizz";
             }
